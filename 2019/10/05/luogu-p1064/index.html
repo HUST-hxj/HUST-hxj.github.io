@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Luogu P1064 金明的预算方案 题解 | Hu Xinjing&#39;s Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Hu Xinjing's Site" type="application/atom+xml">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hu Xinjing&#39;s Site</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Leap further ahead.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-luogu-p1064" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/10/05/luogu-p1064/" class="article-date">
+  <time class="dt-published" datetime="2019-10-05T02:00:30.000Z" itemprop="datePublished">2019-10-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Luogu P1064 金明的预算方案 题解
+    </h1>
+  
+
+
+<br/>
+
+
+  <a href="javascript:;" class="archive-article-date">
+    <i class="fa fa-keyboard"></i>字数
+    <span class="post-count">933</span>
+  </a>
+
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="原题链接"><a href="#原题链接" class="headerlink" title="原题链接"></a>原题链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1064">https://www.luogu.com.cn/problem/P1064</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>根据题意我们可以得知，只选主件、只选主件和第一个附件、只选主件和第二个附件、主件和两个附件都选这四种情况是互斥的，只能且必须任选其一，符合分组背包类似于“每组物品中只能选一个”的性质。由此可知，本题可以设法使用分组背包来做。我们根据题目特性，巧用预处理把问题转化为分组背包问题。</p>
+<span id="more"></span>
+
+<p>首先进行预处理，我们用一个结构体来存储物品的信息，把所有物品依照主附件关系分为若干组用vector容器v构建二维数组来存储。</p>
+<p>在读入数据时，如果第i件物品是主件，那我们就把第i件物品的价格（DP时用到）和价格与重要度的乘积（更新答案时用到，以下都称“实际权重”）push_back到v[i]中；如果第i件物品是第j件物品的附件，那就把物品j按照如下规定的思路push_back到v[j]，v[i]留空即可。</p>
+<p>根据四种互斥情况，我们规定每组物品：</p>
+<ul>
+<li>第一个物品的价格和实际权重等于主件；</li>
+<li>第二个物品的价格和实际权重等于主件+第一个附件；</li>
+<li>第三个物品的价格和实际权重等于主件+第二个附件；</li>
+<li>第四个物品的价格和实际权重等于主件+第一个附件+第二个附件；</li>
+</ul>
+<p>又因为主件=第一个物品，主件+第一个附件=第二个物品，故上述规定可以表示为：</p>
+<ul>
+<li>第一个物品的价格和实际权重等于主件；</li>
+<li>第二个物品的价格和实际权重等于第一个物品+第一个附件；</li>
+<li>第三个物品的价格和实际权重等于第一个物品+第二个附件；</li>
+<li>第四个物品的价格和实际权重等于第二个物品+第二个附件；</li>
+</ul>
+<p>上述规定可以用一个for循环进行递推计算，每次加入新附件时在遍历已有该附件对应主件和该主件其它附件的同时进行累加，将累加后的结果push_back到末端即可。（具体请参照代码）</p>
+<p>至此，预处理结束，设m件物品中有a件主件和m-a件附件，则这些物品已经被分为a组，每组物品以主件开头，最多4件物品（根据题目数据，附件是一定出现在主件之后的）。</p>
+<p>问题已经彻底转化成了一个分组背包问题，直接套用分组背包DP的模板求解即可。</p>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">good</span>&#123;</span><span class="keyword">int</span> w,t;&#125;;</span><br><span class="line">vector&lt;good&gt; v[<span class="number">61</span>];</span><br><span class="line"><span class="keyword">int</span> n,m,a,b,c,f[<span class="number">32001</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="keyword">return</span> x&gt;y?x:y;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">      <span class="keyword">int</span> temp=v[c].<span class="built_in">size</span>();<span class="comment">//提前记录当前主件和该主件已出现的附件的总数，避免后面出现死循环</span></span><br><span class="line">      <span class="keyword">if</span>(!c)v[i].<span class="built_in">push_back</span>(&#123;a,a*b&#125;);<span class="comment">//处理主件</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;temp;k++)</span><br><span class="line">         v[c].<span class="built_in">push_back</span>(&#123;a+v[c][k].w,a*b+v[c][k].t&#125;);<span class="comment">//依据题解中规则处理附件</span></span><br><span class="line">    &#125;</span><br><span class="line">  <span class="comment">//一维分组背包模板</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=n;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;v[i].<span class="built_in">size</span>();k++)</span><br><span class="line">    &#123;</span><br><span class="line">      good now=v[i][k];</span><br><span class="line">      <span class="keyword">if</span>(j&gt;=now.w)f[j]=<span class="built_in">max</span>(f[j],f[j-now.w]+now.t);</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,f[n]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://husthxj.top/2019/10/05/luogu-p1064/" data-id="ckoqw6urp00039uve56learc0" data-title="Luogu P1064 金明的预算方案 题解" class="article-share-link">Share</a>
+      
+      
+        <a href="/2019/10/05/luogu-p1064/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2019/10/05/luogu-p1064/" itemprop="commentCount"></span>
+          Comments
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/05/luogu-p1280/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Luogu P1280 尼克的任务 题解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/26/luogu-p2296/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Luogu P2296 寻找道路 题解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag">广度优先搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80/" rel="tag">康托展开</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E8%A1%A8/" rel="tag">打表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/" rel="tag">最大流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag">树状数组</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" rel="tag">深度优先搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1/" rel="tag">送你一朵小红花</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/14/hello-world/">Hello,World!</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/10/luogu-p3931/">Luogu P3931 一道难题 Tree 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/09/luogu-p3014/">Luogu P3014 牛线Cow Line 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/luogu-p1280/">Luogu P1280 尼克的任务 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/05/luogu-p1064/">Luogu P1064 金明的预算方案 题解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%B2%E4%BE%83/">闲侃</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 By HUST_hxj<br>
+      Driven - <a href="https://hexo.io/" target="_blank">Hexo</a>|Theme - <a href="https://github.com/autoload/hexo-theme-auto" target="_blank">Auto</a>
+      <br/>
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 人次</span>
+      <br/>
+      <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+      <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("05/14/2021 13:57:11");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+        setInterval("createtime()",250);
+      </script>
+    </div>
+  </div>
+  
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "c4govuEzrQ5AAaHXWJdpjWD2-gzGzoHsz",
+        appKey: "PylLNeR4tqqyCMBcb2LHyMMI",
+        placeholder: "Write your comment...",
+        pageSize:'10',
+        avatar:'mm',
+        lang:'zh-cn',
+        visitor: true
+    });
+</script>
+
+
+
+  </div>
+</body>
+</html>
