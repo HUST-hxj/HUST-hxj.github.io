@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>HoneyTuner 一个简洁易用的音频处理工具箱</title>
+      <link href="/2021/09/17/honeytuner/"/>
+      <url>/2021/09/17/honeytuner/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/images/posts/honeytuner/intro.png" alt="Introducing HoneyTuner"></p><h1 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h1><p>HoneyTuner 是一个音频处理工具箱，由 HUST_hxj 于 2020 年 10 月 18 日启动开发，初版完工于 2021 年 1 月 5 日。本软件使用了 C/HTML/CSS/JavaScript 等语言并基于 <a href="https://www.electronjs.org/">Electron 框架</a>，支持对 MP3 格式音频文件进行一系列修改操作。目前已经支持的操作有：</p><ul><li>将MP3音频文件解码为 wav 波形音频文件（<a href="https://github.com/mackron/dr_libs">mackron/dr_libs</a>）</li><li>增大或减小音频任意片段的音量</li><li>倒置音频的任意片段</li><li>删除音频的任意片段</li><li>在一个音频的任意位置拼接入另一个音频的任意片段</li><li>在一个音频的任意位置叠加入另一个音频的任意片段</li><li>在上述两个功能的两个操作音频采样率不同时进行采样率同化</li><li>去除音频任意片段的任意声道</li><li>实现音频任意片段的变调加速与减速，以及不变调减速</li><li>为音频任意片段添加任意幅度的混响效果</li><li>将音频任意片段的音调升高任意幅度</li><li>将音频任意片段复制到该音频的其它位置</li><li>将音频任意片段移动到该音频的其它位置</li><li>撤销之前作出的修改</li><li>调用系统播放器试听音频的当前修改版本</li><li>将wav波形音频文件编码为 MP3 音频文件（<a href="https://github.com/mackron/dr_libs">mackron/dr_libs</a>）</li></ul><p>这些功能的使用方式，在软件对应功能界面有详尽的说明。更多功能与特性正在到来的路上，敬请期待。</p><h1 id="产品界面"><a href="#产品界面" class="headerlink" title="产品界面"></a>产品界面</h1><p><img src="/images/posts/honeytuner/interface.png" alt="HoneyTuner Main Interface"></p><h1 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h1><p>最新版本：1.0.2</p><ul><li><a href="https://pan.baidu.com/s/1SvGv3JoYG2ZOTngY289OPA">百度网盘</a> （提取码: x6yf）</li><li><a href="https://github.com/HUST-hxj/HoneyTuner/releases/download/1.0.2/honeytuner-win32-x64-1.0.2.zip">Github</a></li></ul><h1 id="版本日志"><a href="#版本日志" class="headerlink" title="版本日志"></a>版本日志</h1><ul><li><p>2021.09.17 Ver 1.0.2 <strong>(Latest)</strong></p><ul><li>添加在 Windows 系统下使用的源码自动编译脚本（需安装 Node.js 和 GCC）</li></ul></li><li><p>2021.01.11 Ver 1.0.1</p><ul><li>添加窗口大小自定义</li><li>对部分细节进行优化</li></ul></li><li><p>2021.01.05 Ver 1.0.0</p><ul><li>HoneyTuner 的第一个版本</li></ul></li></ul><h1 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h1><ul><li><a href="https://github.com/HUST-hxj/HoneyTuner">Github</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 作品 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Electron </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello,World!</title>
       <link href="/2021/05/14/hello-world/"/>
       <url>/2021/05/14/hello-world/</url>
