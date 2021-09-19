@@ -31,11 +31,11 @@
     
     
     <entry>
-      <title>Hello,World!</title>
+      <title>Hello, world.</title>
       <link href="/2021/05/14/hello-world/"/>
       <url>/2021/05/14/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>个人网站开通，纪念一下。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/images/posts/hello-world/banner.png" alt="banner"></p><p>个人网站开通，纪念一下。</p>]]></content>
       
       
       <categories>

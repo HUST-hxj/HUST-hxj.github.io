@@ -44,18 +44,19 @@
   </entry>
   
   <entry>
-    <title>Hello,World!</title>
+    <title>Hello, world.</title>
     <link href="https://husthxj.top/2021/05/14/hello-world/"/>
     <id>https://husthxj.top/2021/05/14/hello-world/</id>
     <published>2021-05-14T07:57:24.000Z</published>
-    <updated>2021-09-18T07:05:44.573Z</updated>
+    <updated>2021-09-19T02:19:37.143Z</updated>
     
-    <content type="html"><![CDATA[<p>个人网站开通，纪念一下。</p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/posts/hello-world/banner.png" alt="banner"></p><p>个人网站开通，纪念一下。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;个人网站开通，纪念一下。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/hello-world/banner.png&quot; alt=&quot;banner&quot;&gt;&lt;/p&gt;
+&lt;p&gt;个人网站开通，纪念一下。&lt;/p&gt;
 </summary>
       
     
