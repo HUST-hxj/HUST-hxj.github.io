@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://honeta.site/categories/index.html</loc>
+    
+    <lastmod>2021-10-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://honeta.site/about/index.html</loc>
+    
+    <lastmod>2021-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://honeta.site/tags/index.html</loc>
     
     <lastmod>2021-10-30</lastmod>
     
@@ -68,20 +82,6 @@
     <loc>https://honeta.site/2021/09/17/introducing-honeytuner/</loc>
     
     <lastmod>2021-09-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://honeta.site/categories/index.html</loc>
-    
-    <lastmod>2021-08-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://honeta.site/tags/index.html</loc>
-    
-    <lastmod>2021-08-04</lastmod>
     
   </url>
   
