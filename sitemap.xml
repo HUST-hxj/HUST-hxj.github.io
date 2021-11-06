@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://honeta.site/2021/05/14/hello-world/</loc>
-    
-    <lastmod>2021-11-05</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://honeta.site/about/index.html</loc>
     
     <lastmod>2021-11-04</lastmod>
@@ -107,13 +100,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://honeta.site/tags/%E9%80%81%E4%BD%A0%E4%B8%80%E6%9C%B5%E5%B0%8F%E7%BA%A2%E8%8A%B1/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>https://honeta.site/tags/Electron/</loc>
@@ -228,13 +214,6 @@
   </url>
   
 
-  
-  <url>
-    <loc>https://honeta.site/categories/%E9%97%B2%E4%BE%83/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>https://honeta.site/categories/%E4%BD%9C%E5%93%81/</loc>
