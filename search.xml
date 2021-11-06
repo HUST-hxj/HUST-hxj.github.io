@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>可持久化并查集（带路径压缩、按秩合并优化）模板</title>
+      <title>可持久化并查集模板（带路径压缩、按秩合并优化）</title>
       <link href="/2021/11/06/persistent-union-find-set/"/>
       <url>/2021/11/06/persistent-union-find-set/</url>
       
