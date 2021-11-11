@@ -3749,6 +3749,7 @@ blockquote footer cite:before {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  letter-spacing: 1px;
 }
 #nav #toggle-menu {
   display: none;
