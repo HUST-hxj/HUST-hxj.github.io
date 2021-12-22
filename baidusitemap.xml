@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://honeta.site/2021/11/05/persistent-segment-tree/</loc>
+    <lastmod>2021-12-22</lastmod>
+  </url>
+  <url>
+    <loc>https://honeta.site/2021/11/06/persistent-union-find-set/</loc>
+    <lastmod>2021-12-22</lastmod>
+  </url>
+  <url>
     <loc>https://honeta.site/2021/11/19/dp-recursive-model/</loc>
     <lastmod>2021-12-22</lastmod>
   </url>
@@ -14,14 +22,6 @@
   </url>
   <url>
     <loc>https://honeta.site/2021/11/17/virtual-tree/</loc>
-    <lastmod>2021-12-13</lastmod>
-  </url>
-  <url>
-    <loc>https://honeta.site/2021/11/06/persistent-union-find-set/</loc>
-    <lastmod>2021-12-13</lastmod>
-  </url>
-  <url>
-    <loc>https://honeta.site/2021/11/05/persistent-segment-tree/</loc>
     <lastmod>2021-12-13</lastmod>
   </url>
   <url>
