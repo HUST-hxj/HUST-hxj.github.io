@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://honeta.site/files/index.html</loc>
+    
+    <lastmod>2022-04-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://honeta.site/2022/04/03/distributed-data-replication/</loc>
     
     <lastmod>2022-04-18</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://honeta.site/2020/11/10/learn-git/</loc>
     
     <lastmod>2022-02-23</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://honeta.site/files/index.html</loc>
-    
-    <lastmod>2022-01-27</lastmod>
     
   </url>
   
