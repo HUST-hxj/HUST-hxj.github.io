@@ -70,9 +70,9 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> OI/ACM </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 树形 DP </tag>
             
@@ -99,9 +99,9 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> OI/ACM </tag>
+            
+            <tag> 动态规划 </tag>
             
             <tag> 深度优先搜索 </tag>
             
@@ -366,11 +366,11 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 洛谷 </tag>
             
             <tag> OI/ACM </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -395,11 +395,11 @@
       
         <tags>
             
-            <tag> 动态规划 </tag>
-            
             <tag> 洛谷 </tag>
             
             <tag> OI/ACM </tag>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -455,13 +455,13 @@
       
         <tags>
             
-            <tag> 洛谷 </tag>
-            
-            <tag> OI/ACM </tag>
-            
             <tag> 打表 </tag>
             
             <tag> 数论 </tag>
+            
+            <tag> 洛谷 </tag>
+            
+            <tag> OI/ACM </tag>
             
         </tags>
       
@@ -486,11 +486,11 @@
       
         <tags>
             
+            <tag> 打表 </tag>
+            
             <tag> 洛谷 </tag>
             
             <tag> OI/ACM </tag>
-            
-            <tag> 打表 </tag>
             
             <tag> 哈希表 </tag>
             
